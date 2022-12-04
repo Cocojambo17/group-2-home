@@ -8,13 +8,13 @@ class FaceObTable(QTableWidget):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("Тейбл")
-        self.resize(300, 200)
+        self.resize(300, 400)
         self.table = QTableWidget(self)
         self.table_formation()
         self.show()
 
     def table_formation(self):
-        self.table.resize(600, 400)
+        self.table.resize(800, 500)
         self.table.setColumnCount(3)
         self.table.setHorizontalHeaderLabels(['Id', 'Name', 'Mark'])
         big_query = QSqlQuery("SELECT id, name, mark FROM students")
@@ -24,7 +24,7 @@ class FaceObTable(QTableWidget):
             self.table.setRowCount(rows + 1)
             self.table.setItem(rows, 0, QTableWidgetItem(big_query.value(0)))
             self.table.setItem(rows, 1, QTableWidgetItem(big_query.value(1)))
-            self.table.setItem(rows, 2, QTableWidgetItem(str(big_query.value(2))))
+            self.table.setItem(rows, 2, QTableWidgetItem(big_query.value(2)))
 
         self.table.resizeColumnsToContents()
         self.table.resizeRowsToContents()
